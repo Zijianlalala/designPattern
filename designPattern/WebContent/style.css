@@ -1,0 +1,30 @@
+#wrapper {
+	width: 80%;
+	margin-left: 150px;
+	min-width: 850px;
+}
+#leftcolumn {
+	color: #66FFFF;
+	float: left;
+	width: 150px;
+	font-family: cursive, sans-serif;
+	font-size: large;
+}
+#rightcolumn {
+	margin-left: 155px;
+}
+h1 {
+	color: #CC0033;
+	font-family: fantasy, cursive,sans-serif;
+	margin-left: 70px;
+}
+header {
+	box-shadow:5px 5px 5px #828282;
+	text-shadow:3px 3px 5px #666;
+	
+}
+nav {
+	background: #8ae9b1;
+	font-family: fantasy, cursive,sans-serif;
+	color: #123456;
+}
