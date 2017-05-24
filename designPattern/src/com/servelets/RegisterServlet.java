@@ -19,16 +19,20 @@ public class RegisterServlet extends HttpServlet {
 		String newName = request.getParameter("userName");
 		String newPwd = request.getParameter("userPwd");
 		User user = new User();
-		RequestDispatcher dis = null;
+		RequestDispatcher dis = request.getRequestDispatcher("/register.jsp");
+		String info2 = "";
 		try {
 			if(user.isUser(newName)){
 				//注册无效，用户名已存在，返回注册页面重新注册
-				dis = request.getRequestDispatcher("register_failed.jsp");
+				//dis = request.getRequestDispatcher("register_failed.jsp");
+				info2 = "用户名已存在";
 			}else{
 				//注册成功，并将数据存入数据库，返回登录页面
 				user.createUser(newName, newPwd);
-				dis = request.getRequestDispatcher("register_success.jsp");
+				dis = request.getRequestDispatcher("login.jsp");
+				info2 = "注册成功请登录";
 			}
+			request.setAttribute("info2", info2);
 			dis.forward(request, response);
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block

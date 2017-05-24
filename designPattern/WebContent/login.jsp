@@ -28,6 +28,7 @@
 				</tr>
 			</table>
 		</form>
+		<div id="mes">${info }${info2 }</div>
 		<h3>如果未注册，请先<a href="register.jsp">注册</a></h3>
 		<jsp:include page="footer.html"/>
 	</div>

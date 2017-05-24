@@ -28,6 +28,7 @@
 				</tr>
 			</table>
 		</form>
+		<div>${info2 }</div>
 		<jsp:include page="footer.html"/>
 	</div>
 </body>

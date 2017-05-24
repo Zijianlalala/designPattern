@@ -22,7 +22,8 @@ public class LoginServelet extends HttpServlet {
 		String name = request.getParameter("userName");
 		String pwd = request.getParameter("userPwd");
 		User usr = new User();
-		RequestDispatcher dis = null;
+		String info = "";
+		RequestDispatcher dis = request.getRequestDispatcher("/login.jsp");
 		try {
 			if(usr.isUser(name)){
 				//该用户已注册，再验证密码是否正确
@@ -31,12 +32,15 @@ public class LoginServelet extends HttpServlet {
 					dis = request.getRequestDispatcher("index.jsp");
 				}else{
 					//密码不正确，请重新输入密码
-					dis = request.getRequestDispatcher("wrong_pwd.jsp");
+					//dis = request.getRequestDispatcher("wrong_pwd.jsp");
+					info = "密码错误";
 				}
 			}else{
 				//该用户未注册，请先注册
-				dis = request.getRequestDispatcher("login_failed.jsp");
+				//dis = request.getRequestDispatcher("login_failed.jsp");
+				info = "用户未注册";
 			}
+			request.setAttribute("info", info);
 			dis.forward(request, response);
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
