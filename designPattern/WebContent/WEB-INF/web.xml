@@ -24,4 +24,26 @@
     <servlet-name>RegisterServlet</servlet-name>
     <url-pattern>/register.do</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ProcessServlet</display-name>
+    <servlet-name>ProcessServlet</servlet-name>
+    <servlet-class>com.servelets.ProcessServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ProcessServlet</servlet-name>
+    <url-pattern>/process.do</url-pattern>
+  </servlet-mapping>
+  <context-param>
+  	<param-name>patternNumbers</param-name>
+  	<param-value>20</param-value>
+  </context-param>
+  <context-param>
+  	<param-name>learnedNumbers</param-name>
+  	<param-value>0</param-value>
+  </context-param>
+  
+  
+  
+  
 </web-app>

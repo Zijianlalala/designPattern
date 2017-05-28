@@ -10,6 +10,7 @@ import com.jdbc.DBConn;
 public class User {
 	private String userName;
 	private String userPwd;
+	private float process;
 	public User(){}
 	public String getUserName() {
 		return userName;
@@ -22,6 +23,9 @@ public class User {
 	}
 	public void setUserPwd(String userPwd) {
 		this.userPwd = userPwd;
+	}
+	public float getProcess(){
+		return process;
 	}
 	public boolean isUser(String name) throws SQLException,ClassNotFoundException{
 		boolean flag = false;
@@ -59,6 +63,19 @@ public class User {
 		} catch (SQLException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
+		}
+	}
+	public void setProcess(float process,String userName){
+		DBConn udb = new DBConn();
+		Connection conn = udb.getUserDBconn();
+		String sql = "update users set process="+process+"where name="+userName;
+		PreparedStatement pstmt;
+		try{
+			pstmt = conn.prepareStatement(sql);
+			int n = pstmt.executeUpdate();
+			udb.closeUserDB(conn, pstmt, null);
+		}catch(SQLException e){
+			e.printStackTrace();
 		}
 	}
 }

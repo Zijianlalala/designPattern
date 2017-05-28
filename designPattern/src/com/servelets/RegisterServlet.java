@@ -22,10 +22,13 @@ public class RegisterServlet extends HttpServlet {
 		RequestDispatcher dis = request.getRequestDispatcher("/register.jsp");
 		String info2 = "";
 		try {
-			if(user.isUser(newName)){
+			if(newName.isEmpty()){
+				info2="用户名不能为空！";
+			}
+			else if(user.isUser(newName)){
 				//注册无效，用户名已存在，返回注册页面重新注册
 				//dis = request.getRequestDispatcher("register_failed.jsp");
-				info2 = "用户名已存在";
+				info2 = "用户名已存在！";
 			}else{
 				//注册成功，并将数据存入数据库，返回登录页面
 				user.createUser(newName, newPwd);
